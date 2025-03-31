@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Bottom Navigation Styles -->
+    <style name="CustomBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@drawable/bg_bottom_nav</item>
+        <item name="itemIconTint">@color/bottom_nav_colors</item>
+        <item name="itemTextColor">@color/bottom_nav_colors</item>
+        <item name="itemIconSize">24dp</item>
+        <item name="elevation">8dp</item>
+        <item name="itemPaddingTop">8dp</item>
+        <item name="itemPaddingBottom">8dp</item>
+    </style>
+
+    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:stateListAnimator">@animator/button_state_list_anim</item>
+    </style>
+
+    <style name="CustomButton.Primary" parent="CustomButton">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CustomButton.Success" parent="CustomButton">
+        <item name="backgroundTint">@color/success_green</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CustomButton.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:stateListAnimator">@animator/button_state_list_anim</item>
+    </style>
+
+    <style name="CustomButton.Outlined.Danger" parent="CustomButton.Outlined">
+        <item name="strokeColor">@color/error_red</item>
+        <item name="android:textColor">@color/error_red</item>
+    </style>
+
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextAppearance">@style/CustomTextInputHint</item>
+        <item name="boxStrokeColor">@color/primary</item>
+    </style>
+
+    <style name="CustomTextInputHint" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources> 
