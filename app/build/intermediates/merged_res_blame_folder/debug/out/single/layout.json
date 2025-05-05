@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_qr_scanner.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_qr_scanner.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_scan.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_scan.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_register.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_register.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_history.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/item_history.xml",
+        "source": "com.refunnnn.app-main-88:/layout/item_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_qr_scanner.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_qr_scanner.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_home.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_register.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_location_bin.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_location_bin.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_login.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_login.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_history.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_main.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_profile.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_login.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_location.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_location.xml"
+    }
+]

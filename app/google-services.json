@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748733280102",
+    "project_id": "refun-97f47",
+    "storage_bucket": "refun-97f47.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748733280102:android:3b2c9495d88d773a34e2a7",
+        "android_client_info": {
+          "package_name": "com.refunnnn.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOoq9_W-lxm5vMgjNfh04b82qO8DsCqSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

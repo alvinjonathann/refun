@@ -1,0 +1,242 @@
+[
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_scanner_frame.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/scanner_frame.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/color_bottom_nav_colors.xml.flat",
+        "source": "com.refunnnn.app-main-88:/color/bottom_nav_colors.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_home.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_location.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_location.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_location_icon.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/location_icon.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_scan.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_scan.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_register.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_register.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_barcode.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_barcode.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.refunnnn.app-main-88:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_profile.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_history.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_activity_register.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_logout.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_edit.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_edit.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_item_history.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/item_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/color_bottom_nav_selector.xml.flat",
+        "source": "com.refunnnn.app-main-88:/color/bottom_nav_selector.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_activity_login.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_history_empty.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_history_empty.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/menu_menu_home.xml.flat",
+        "source": "com.refunnnn.app-main-88:/menu/menu_home.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/xml_data_extraction_rules.xml.flat",
+        "source": "com.refunnnn.app-main-88:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_scan.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_scan.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_history.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_scanner_overlay.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/scanner_overlay.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_gopay.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_gopay.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/anim_nav_item_scale.xml.flat",
+        "source": "com.refunnnn.app-main-88:/anim/nav_item_scale.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_activity_history.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/activity_history.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_home.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/animator_button_state_list_anim.xml.flat",
+        "source": "com.refunnnn.app-main-88:/animator/button_state_list_anim.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/navigation_nav_graph.xml.flat",
+        "source": "com.refunnnn.app-main-88:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_refun.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_refun.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_login.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_login.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_history_icon.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/history_icon.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_arrow_back.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/arrow_back.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_activity_location.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/activity_location.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_default_avatar.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/default_avatar.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/menu_home_menu.xml.flat",
+        "source": "com.refunnnn.app-main-88:/menu/home_menu.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_location_bin.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_location_bin.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_activity_main.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_home_icon.png.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/home_icon.png"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_qr_scanner_overlay.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/qr_scanner_overlay.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_fragment_qr_scanner.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_qr_scanner.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_profile_icon.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/profile_icon.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_ic_profile.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/ic_profile.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/drawable_bg_bottom_nav.xml.flat",
+        "source": "com.refunnnn.app-main-88:/drawable/bg_bottom_nav.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.refunnnn.app-main-88:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/layout_activity_qr_scanner.xml.flat",
+        "source": "com.refunnnn.app-main-88:/layout/activity_qr_scanner.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-merged_res-86:/xml_backup_rules.xml.flat",
+        "source": "com.refunnnn.app-main-88:/xml/backup_rules.xml"
+    }
+]

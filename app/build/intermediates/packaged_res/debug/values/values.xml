@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#FF03DAC5</color>
+    <color name="accent_dark">#689F38</color>
+    <color name="accent_light">#DCEDC8</color>
+    <color name="background">#F5F5F5</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="black">#000000</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="error">#F44336</color>
+    <color name="gray">#757575</color>
+    <color name="gray_dark">#616161</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="info">#2196F3</color>
+    <color name="primary">#FF6200EE</color>
+    <color name="primary_dark">#FF3700B3</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="success">#4CAF50</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_white">#FFFFFF</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="warning">#FFC107</color>
+    <color name="white">#FFFFFF</color>
+    <string name="MAPS_API_KEY">${MAPS_API_KEY}</string>
+    <string name="app_name">Refun</string>
+    <string name="gcm_defaultSenderId" translatable="false">748733280102</string>
+    <string name="google_api_key" translatable="false">AIzaSyAOoq9_W-lxm5vMgjNfh04b82qO8DsCqSo</string>
+    <string name="google_app_id" translatable="false">1:748733280102:android:3b2c9495d88d773a34e2a7</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOoq9_W-lxm5vMgjNfh04b82qO8DsCqSo</string>
+    <string name="google_storage_bucket" translatable="false">refun-97f47.firebasestorage.app</string>
+    <string name="project_id" translatable="false">refun-97f47</string>
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="CustomBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@drawable/bg_bottom_nav</item>
+        <item name="itemIconTint">@color/bottom_nav_colors</item>
+        <item name="itemTextColor">@color/bottom_nav_colors</item>
+        <item name="itemIconSize">24dp</item>
+        <item name="elevation">8dp</item>
+        <item name="itemPaddingTop">8dp</item>
+        <item name="itemPaddingBottom">8dp</item>
+    </style>
+    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:stateListAnimator">@animator/button_state_list_anim</item>
+    </style>
+    <style name="CustomButton.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:stateListAnimator">@animator/button_state_list_anim</item>
+    </style>
+    <style name="CustomButton.Outlined.Danger" parent="CustomButton.Outlined">
+        <item name="strokeColor">@color/error</item>
+        <item name="android:textColor">@color/error</item>
+    </style>
+    <style name="CustomButton.Primary" parent="CustomButton">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="CustomButton.Success" parent="CustomButton">
+        <item name="backgroundTint">@color/success</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="CustomTextInputHint" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextAppearance">@style/CustomTextInputHint</item>
+        <item name="boxStrokeColor">@color/primary</item>
+    </style>
+    <style name="Theme.Refunnnn" parent="Theme.MaterialComponents.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+</resources>
