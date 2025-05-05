@@ -7,17 +7,26 @@
         </shape>
     </item>
 
-    <!-- Transparent scanning area -->
+    <!-- Transparent center area -->
     <item
         android:gravity="center"
         android:width="250dp"
         android:height="250dp">
         <shape android:shape="rectangle">
-            <solid android:color="#00000000" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Scanner frame -->
+    <item
+        android:gravity="center"
+        android:width="250dp"
+        android:height="250dp">
+        <shape android:shape="rectangle">
             <stroke
                 android:width="2dp"
-                android:color="#FFFFFF" />
-            <corners android:radius="16dp" />
+                android:color="@color/primary" />
+            <corners android:radius="12dp" />
         </shape>
     </item>
 
@@ -25,27 +34,17 @@
     <item
         android:gravity="top|start"
         android:width="40dp"
-        android:height="40dp">
+        android:height="40dp"
+        android:left="105dp"
+        android:top="105dp">
         <rotate android:fromDegrees="0">
             <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" />
-                <size
+                <stroke
                     android:width="4dp"
-                    android:height="40dp" />
-            </shape>
-        </rotate>
-    </item>
-
-    <item
-        android:gravity="top|start"
-        android:width="40dp"
-        android:height="40dp">
-        <rotate android:fromDegrees="90">
-            <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" />
+                    android:color="@color/primary" />
                 <size
-                    android:width="4dp"
-                    android:height="40dp" />
+                    android:width="20dp"
+                    android:height="20dp" />
             </shape>
         </rotate>
     </item>
@@ -53,13 +52,17 @@
     <item
         android:gravity="top|end"
         android:width="40dp"
-        android:height="40dp">
+        android:height="40dp"
+        android:right="105dp"
+        android:top="105dp">
         <rotate android:fromDegrees="90">
             <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" />
-                <size
+                <stroke
                     android:width="4dp"
-                    android:height="40dp" />
+                    android:color="@color/primary" />
+                <size
+                    android:width="20dp"
+                    android:height="20dp" />
             </shape>
         </rotate>
     </item>
@@ -67,27 +70,17 @@
     <item
         android:gravity="bottom|start"
         android:width="40dp"
-        android:height="40dp">
-        <rotate android:fromDegrees="0">
+        android:height="40dp"
+        android:left="105dp"
+        android:bottom="105dp">
+        <rotate android:fromDegrees="270">
             <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" />
-                <size
+                <stroke
                     android:width="4dp"
-                    android:height="40dp" />
-            </shape>
-        </rotate>
-    </item>
-
-    <item
-        android:gravity="top|end"
-        android:width="40dp"
-        android:height="40dp">
-        <rotate android:fromDegrees="180">
-            <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" />
+                    android:color="@color/primary" />
                 <size
-                    android:width="4dp"
-                    android:height="40dp" />
+                    android:width="20dp"
+                    android:height="20dp" />
             </shape>
         </rotate>
     </item>
@@ -95,13 +88,17 @@
     <item
         android:gravity="bottom|end"
         android:width="40dp"
-        android:height="40dp">
-        <rotate android:fromDegrees="270">
+        android:height="40dp"
+        android:right="105dp"
+        android:bottom="105dp">
+        <rotate android:fromDegrees="180">
             <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" />
-                <size
+                <stroke
                     android:width="4dp"
-                    android:height="40dp" />
+                    android:color="@color/primary" />
+                <size
+                    android:width="20dp"
+                    android:height="20dp" />
             </shape>
         </rotate>
     </item>
