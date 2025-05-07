@@ -80,11 +80,11 @@ class LocationBinFragment : Fragment(), OnMapReadyCallback {
             map.uiSettings.isZoomControlsEnabled = true
             map.uiSettings.isMyLocationButtonEnabled = true
 
-            // Add marker for ReFun Collection Point
-            val refunLocation = LatLng(-6.9622035, 107.5671275)
+            // Add marker for Binus @Bandung - Paskal Campus
+            val refunLocation = LatLng(-6.9152934, 107.5935825)
             map.addMarker(MarkerOptions()
                 .position(refunLocation)
-                .title("ReFun Collection Point"))
+                .title("Binus @Bandung - Paskal Campus"))
 
             // Move camera to the location
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(refunLocation, 15f))

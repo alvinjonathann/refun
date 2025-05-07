@@ -1,32 +1,33 @@
 package com.refunnnn.app.ui.fragments
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.refunnnn.app.R
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.button.MaterialButton
+import com.refunnnn.app.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
+    private lateinit var binding: FragmentProfileBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
-    private lateinit var nameView: TextInputEditText
-    private lateinit var emailView: TextInputEditText
-    private lateinit var saveButton: MaterialButton
-    private lateinit var logoutButton: MaterialButton
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,23 +35,73 @@ class ProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        nameView = view.findViewById(R.id.profileName)
-        emailView = view.findViewById(R.id.profileEmail)
-        saveButton = view.findViewById(R.id.saveProfileButton)
-        logoutButton = view.findViewById(R.id.logoutButton)
-
-        // Make email field non-editable
-        emailView.isEnabled = false
-
         // Load user data
         loadUserData()
 
-        saveButton.setOnClickListener {
-            saveUserData()
+        binding.btnBack.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        logoutButton.setOnClickListener {
-            logoutUser()
+        binding.btnEdit.setOnClickListener {
+            showEditUsernameDialog()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Logout")
+                .setMessage("Apakah Anda yakin ingin logout?")
+                .setPositiveButton("Logout") { _, _ ->
+                    auth.signOut()
+                    // Kembali ke LoginActivity
+                    val intent = Intent(requireContext(), com.refunnnn.app.ui.LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    requireActivity().finish()
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
+
+        binding.btnDeleteAccount.setOnClickListener {
+            showDeleteAccountConfirmation()
+        }
+    }
+
+    private fun showDeleteAccountConfirmation() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete Account")
+            .setMessage("Apakah Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.")
+            .setPositiveButton("Hapus") { _, _ ->
+                deleteAccount()
+            }
+            .setNegativeButton("Batal", null)
+            .show()
+    }
+
+    private fun deleteAccount() {
+        val user = auth.currentUser
+        if (user != null) {
+            // Hapus data user dari Firestore
+            firestore.collection("users").document(user.uid)
+                .delete()
+                .addOnSuccessListener {
+                    // Hapus akun dari Firebase Auth
+                    user.delete()
+                        .addOnSuccessListener {
+                            Toast.makeText(requireContext(), "Akun berhasil dihapus", Toast.LENGTH_SHORT).show()
+                            // Kembali ke RegisterActivity
+                            val intent = Intent(requireContext(), com.refunnnn.app.ui.RegisterActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            requireActivity().finish()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(requireContext(), "Gagal menghapus akun: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(requireContext(), "Gagal menghapus data user: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 
@@ -58,35 +109,56 @@ class ProfileFragment : Fragment() {
         val userId = auth.currentUser?.uid ?: return
         firestore.collection("users").document(userId).get()
             .addOnSuccessListener { doc ->
-                nameView.setText(doc.getString("username") ?: "")
-                emailView.setText(doc.getString("email") ?: "")
+                binding.txtUsername.text = doc.getString("username") ?: "-"
+                binding.txtEmail.text = doc.getString("email") ?: "-"
             }
             .addOnFailureListener {
                 Toast.makeText(requireContext(), "Failed to load user data", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun saveUserData() {
-        val userId = auth.currentUser?.uid ?: return
-        val newName = nameView.text.toString()
+    private fun showEditUsernameDialog() {
+        val context = requireContext()
+        val editText = EditText(context)
+        editText.setText(binding.txtUsername.text)
+        editText.setSelection(editText.text.length)
+        editText.hint = "Masukkan username baru"
+        editText.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PERSON_NAME
+        val padding = (16 * resources.displayMetrics.density).toInt()
+        editText.setPadding(padding, padding, padding, padding)
 
-        if (newName.isEmpty()) {
-            Toast.makeText(requireContext(), "Username cannot be empty", Toast.LENGTH_SHORT).show()
-            return
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("Edit Username")
+            .setView(editText)
+            .setPositiveButton("Simpan", null)
+            .setNegativeButton("Batal") { dialog, _ -> dialog.dismiss() }
+            .create()
+
+        dialog.setOnShowListener {
+            val button = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            button.setOnClickListener {
+                val newUsername = editText.text.toString().trim()
+                if (newUsername.isNotEmpty()) {
+                    updateUsername(newUsername)
+                    dialog.dismiss()
+                } else {
+                    editText.error = "Username tidak boleh kosong"
+                }
+            }
         }
-
-        firestore.collection("users").document(userId)
-            .update("username", newName)
-            .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Profile updated successfully", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "Failed to update profile", Toast.LENGTH_SHORT).show()
-            }
+        dialog.show()
     }
 
-    private fun logoutUser() {
-        auth.signOut()
-        findNavController().navigate(R.id.loginFragment)
+    private fun updateUsername(newUsername: String) {
+        val userId = auth.currentUser?.uid ?: return
+        firestore.collection("users").document(userId)
+            .update("username", newUsername)
+            .addOnSuccessListener {
+                binding.txtUsername.text = newUsername
+                Toast.makeText(requireContext(), "Username updated", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to update username", Toast.LENGTH_SHORT).show()
+            }
     }
 } 

@@ -4,16 +4,13 @@ package com.refunnnn.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.card.MaterialCardView;
 import com.refunnnn.app.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,13 +18,7 @@ import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
-
-  @NonNull
-  public final TextView eventsLabel;
-
-  @NonNull
-  public final RecyclerView eventsRecyclerView;
+  private final ScrollView rootView;
 
   @NonNull
   public final LinearLayout quickActionCekHarga;
@@ -36,40 +27,24 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final LinearLayout quickActionTukarPoin;
 
   @NonNull
-  public final LinearLayout quickActions;
-
-  @NonNull
-  public final ImageView userAvatar;
-
-  @NonNull
-  public final MaterialCardView userInfoCard;
-
-  @NonNull
   public final TextView userName;
 
   @NonNull
   public final TextView userPoints;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull TextView eventsLabel,
-      @NonNull RecyclerView eventsRecyclerView, @NonNull LinearLayout quickActionCekHarga,
-      @NonNull LinearLayout quickActionTukarPoin, @NonNull LinearLayout quickActions,
-      @NonNull ImageView userAvatar, @NonNull MaterialCardView userInfoCard,
+  private FragmentHomeBinding(@NonNull ScrollView rootView,
+      @NonNull LinearLayout quickActionCekHarga, @NonNull LinearLayout quickActionTukarPoin,
       @NonNull TextView userName, @NonNull TextView userPoints) {
     this.rootView = rootView;
-    this.eventsLabel = eventsLabel;
-    this.eventsRecyclerView = eventsRecyclerView;
     this.quickActionCekHarga = quickActionCekHarga;
     this.quickActionTukarPoin = quickActionTukarPoin;
-    this.quickActions = quickActions;
-    this.userAvatar = userAvatar;
-    this.userInfoCard = userInfoCard;
     this.userName = userName;
     this.userPoints = userPoints;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -94,18 +69,6 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.eventsLabel;
-      TextView eventsLabel = ViewBindings.findChildViewById(rootView, id);
-      if (eventsLabel == null) {
-        break missingId;
-      }
-
-      id = R.id.eventsRecyclerView;
-      RecyclerView eventsRecyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (eventsRecyclerView == null) {
-        break missingId;
-      }
-
       id = R.id.quickActionCekHarga;
       LinearLayout quickActionCekHarga = ViewBindings.findChildViewById(rootView, id);
       if (quickActionCekHarga == null) {
@@ -115,24 +78,6 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.quickActionTukarPoin;
       LinearLayout quickActionTukarPoin = ViewBindings.findChildViewById(rootView, id);
       if (quickActionTukarPoin == null) {
-        break missingId;
-      }
-
-      id = R.id.quickActions;
-      LinearLayout quickActions = ViewBindings.findChildViewById(rootView, id);
-      if (quickActions == null) {
-        break missingId;
-      }
-
-      id = R.id.userAvatar;
-      ImageView userAvatar = ViewBindings.findChildViewById(rootView, id);
-      if (userAvatar == null) {
-        break missingId;
-      }
-
-      id = R.id.userInfoCard;
-      MaterialCardView userInfoCard = ViewBindings.findChildViewById(rootView, id);
-      if (userInfoCard == null) {
         break missingId;
       }
 
@@ -148,9 +93,8 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, eventsLabel, eventsRecyclerView,
-          quickActionCekHarga, quickActionTukarPoin, quickActions, userAvatar, userInfoCard,
-          userName, userPoints);
+      return new FragmentHomeBinding((ScrollView) rootView, quickActionCekHarga,
+          quickActionTukarPoin, userName, userPoints);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,14 +4,14 @@ package com.refunnnn.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.refunnnn.app.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -22,34 +22,37 @@ public final class FragmentProfileBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
-  public final TextInputLayout emailLayout;
+  public final ImageView btnBack;
 
   @NonNull
-  public final MaterialButton logoutButton;
+  public final Button btnDeleteAccount;
 
   @NonNull
-  public final TextInputLayout nameLayout;
+  public final ImageView btnEdit;
 
   @NonNull
-  public final TextInputEditText profileEmail;
+  public final Button btnLogout;
 
   @NonNull
-  public final TextInputEditText profileName;
+  public final ImageView imgProfile;
 
   @NonNull
-  public final MaterialButton saveProfileButton;
+  public final TextView txtEmail;
 
-  private FragmentProfileBinding(@NonNull ScrollView rootView, @NonNull TextInputLayout emailLayout,
-      @NonNull MaterialButton logoutButton, @NonNull TextInputLayout nameLayout,
-      @NonNull TextInputEditText profileEmail, @NonNull TextInputEditText profileName,
-      @NonNull MaterialButton saveProfileButton) {
+  @NonNull
+  public final TextView txtUsername;
+
+  private FragmentProfileBinding(@NonNull ScrollView rootView, @NonNull ImageView btnBack,
+      @NonNull Button btnDeleteAccount, @NonNull ImageView btnEdit, @NonNull Button btnLogout,
+      @NonNull ImageView imgProfile, @NonNull TextView txtEmail, @NonNull TextView txtUsername) {
     this.rootView = rootView;
-    this.emailLayout = emailLayout;
-    this.logoutButton = logoutButton;
-    this.nameLayout = nameLayout;
-    this.profileEmail = profileEmail;
-    this.profileName = profileName;
-    this.saveProfileButton = saveProfileButton;
+    this.btnBack = btnBack;
+    this.btnDeleteAccount = btnDeleteAccount;
+    this.btnEdit = btnEdit;
+    this.btnLogout = btnLogout;
+    this.imgProfile = imgProfile;
+    this.txtEmail = txtEmail;
+    this.txtUsername = txtUsername;
   }
 
   @Override
@@ -79,44 +82,50 @@ public final class FragmentProfileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.emailLayout;
-      TextInputLayout emailLayout = ViewBindings.findChildViewById(rootView, id);
-      if (emailLayout == null) {
+      id = R.id.btnBack;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
         break missingId;
       }
 
-      id = R.id.logoutButton;
-      MaterialButton logoutButton = ViewBindings.findChildViewById(rootView, id);
-      if (logoutButton == null) {
+      id = R.id.btnDeleteAccount;
+      Button btnDeleteAccount = ViewBindings.findChildViewById(rootView, id);
+      if (btnDeleteAccount == null) {
         break missingId;
       }
 
-      id = R.id.nameLayout;
-      TextInputLayout nameLayout = ViewBindings.findChildViewById(rootView, id);
-      if (nameLayout == null) {
+      id = R.id.btnEdit;
+      ImageView btnEdit = ViewBindings.findChildViewById(rootView, id);
+      if (btnEdit == null) {
         break missingId;
       }
 
-      id = R.id.profileEmail;
-      TextInputEditText profileEmail = ViewBindings.findChildViewById(rootView, id);
-      if (profileEmail == null) {
+      id = R.id.btnLogout;
+      Button btnLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogout == null) {
         break missingId;
       }
 
-      id = R.id.profileName;
-      TextInputEditText profileName = ViewBindings.findChildViewById(rootView, id);
-      if (profileName == null) {
+      id = R.id.imgProfile;
+      ImageView imgProfile = ViewBindings.findChildViewById(rootView, id);
+      if (imgProfile == null) {
         break missingId;
       }
 
-      id = R.id.saveProfileButton;
-      MaterialButton saveProfileButton = ViewBindings.findChildViewById(rootView, id);
-      if (saveProfileButton == null) {
+      id = R.id.txtEmail;
+      TextView txtEmail = ViewBindings.findChildViewById(rootView, id);
+      if (txtEmail == null) {
         break missingId;
       }
 
-      return new FragmentProfileBinding((ScrollView) rootView, emailLayout, logoutButton,
-          nameLayout, profileEmail, profileName, saveProfileButton);
+      id = R.id.txtUsername;
+      TextView txtUsername = ViewBindings.findChildViewById(rootView, id);
+      if (txtUsername == null) {
+        break missingId;
+      }
+
+      return new FragmentProfileBinding((ScrollView) rootView, btnBack, btnDeleteAccount, btnEdit,
+          btnLogout, imgProfile, txtEmail, txtUsername);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -24,9 +24,16 @@ class ScanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnScan.setOnClickListener {
-            findNavController().navigate(R.id.action_scanFragment_to_qrScannerFragment)
-        }
+        // Ambil argumen dariCekHarga dan teruskan ke QRScannerFragment
+        val fromCekHarga = arguments?.getBoolean("fromCekHarga") == true
+        val bundle = Bundle().apply { putBoolean("fromCekHarga", fromCekHarga) }
+        findNavController().navigate(
+            R.id.action_scanFragment_to_qrScannerFragment,
+            bundle,
+            androidx.navigation.NavOptions.Builder()
+                .setPopUpTo(R.id.scanFragment, true)
+                .build()
+        )
     }
 
     override fun onDestroyView() {

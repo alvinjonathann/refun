@@ -46,12 +46,12 @@ class HomeFragment : Fragment() {
         val cekHarga = view.findViewById<View>(R.id.quickActionCekHarga)
 
         tukarPoin.setOnClickListener {
-            Toast.makeText(requireContext(), "Tukar Poin clicked!", Toast.LENGTH_SHORT).show()
-            // You can navigate or show a dialog here
+            findNavController().navigate(R.id.giftCatalogueFragment)
         }
 
         cekHarga.setOnClickListener {
-            findNavController().navigate(R.id.scanFragment)
+            val bundle = Bundle().apply { putBoolean("fromCekHarga", true) }
+            findNavController().navigate(R.id.scanFragment, bundle)
         }
     }
 } 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/btnBackGiftDetail"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/arrow_back"
+        android:contentDescription="Back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"/>
+
+    <ImageView
+        android:id="@+id/giftImageDetail"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_refun"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/giftNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gift Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/giftDescText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi hadiah"
+        android:textSize="16sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/giftPointsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 points"
+        android:textColor="#D32F2F"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/redeemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Redeem now"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout> 

@@ -1,97 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light">
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="16dp">
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="48dp"
-            android:src="@drawable/ic_refun" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameLayout"
-            style="@style/CustomTextInputLayout"
+        <!-- Back Button and Title -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Username">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/profileName"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:text="PROFILE"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailLayout"
-            style="@style/CustomTextInputLayout"
+        <!-- Profile Picture and User Info -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:hint="Email">
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/profileEmail"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/profile_icon"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/saveProfileButton"
+                <TextView
+                    android:id="@+id/txtUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User 2486"
+                    android:textStyle="bold"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User248@gmail.com" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_edit" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Save Profile"
-            app:backgroundTint="@color/primary" />
+            android:layout_height="1dp"
+            android:background="#888888"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="Logout"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:strokeColor="@color/error"
-            android:textColor="@color/error" />
-
-        <!-- About REFUN Section -->
+        <!-- Tentang REFUN -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tentang REFUN"
             android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/text_primary"
+            android:textSize="16sp"
             android:layout_marginBottom="8dp" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REFUN adalah aplikasi yang memungkinkan pengguna untuk menukarkan sampah botol plastik melalui vending machine untuk mendapatkan poin yang dapat ditukarkan dengan berbagai macam hal bermanfaat."
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            android:lineSpacingExtra="4dp" />
+            android:orientation="horizontal">
 
-        <TextView
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_refun"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ReFun adalah aplikasi yang memungkinkan penggunanya untuk menukarkan sampah botol plastik melalui vending machine untuk mendapatkan poin yang dapat ditukarkan dengan berbagai macam hal bermanfaat."
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Tombol Logout -->
+        <Button
+            android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dengan REFUN, kita bisa berkontribusi dalam menjaga lingkungan dan mendapatkan manfaat dari sampah yang kita kumpulkan."
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            android:layout_marginTop="8dp"
-            android:lineSpacingExtra="4dp" />
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:backgroundTint="#E53935"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tombol Delete Account -->
+        <Button
+            android:id="@+id/btnDeleteAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Account"
+            android:textAllCaps="false"
+            android:backgroundTint="#FF000000"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp" />
+
     </LinearLayout>
 </ScrollView> 

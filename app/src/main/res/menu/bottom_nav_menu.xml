@@ -6,19 +6,14 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/scanFragment"
-        android:icon="@drawable/ic_scan"
-        android:title="Scan" />
+        android:id="@+id/locationFragment"
+        android:icon="@drawable/ic_location"
+        android:title="Location" />
 
     <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/ic_history"
         android:title="History" />
-
-    <item
-        android:id="@+id/locationFragment"
-        android:icon="@drawable/ic_location"
-        android:title="Location" />
 
     <item
         android:id="@+id/profileFragment"

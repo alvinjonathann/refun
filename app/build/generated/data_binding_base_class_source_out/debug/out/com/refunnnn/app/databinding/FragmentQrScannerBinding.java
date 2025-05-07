@@ -5,12 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.camera.view.PreviewView;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.refunnnn.app.R;
@@ -26,10 +28,16 @@ public final class FragmentQrScannerBinding implements ViewBinding {
   public final TextView bottleName;
 
   @NonNull
+  public final ImageButton btnBack;
+
+  @NonNull
   public final View overlay;
 
   @NonNull
   public final TextView pointsEarned;
+
+  @NonNull
+  public final RecyclerView pointsRecyclerView;
 
   @NonNull
   public final CardView resultCard;
@@ -47,13 +55,16 @@ public final class FragmentQrScannerBinding implements ViewBinding {
   public final Button viewHistoryButton;
 
   private FragmentQrScannerBinding(@NonNull ConstraintLayout rootView, @NonNull TextView bottleName,
-      @NonNull View overlay, @NonNull TextView pointsEarned, @NonNull CardView resultCard,
+      @NonNull ImageButton btnBack, @NonNull View overlay, @NonNull TextView pointsEarned,
+      @NonNull RecyclerView pointsRecyclerView, @NonNull CardView resultCard,
       @NonNull TextView scanHint, @NonNull View scannerFrame, @NonNull PreviewView viewFinder,
       @NonNull Button viewHistoryButton) {
     this.rootView = rootView;
     this.bottleName = bottleName;
+    this.btnBack = btnBack;
     this.overlay = overlay;
     this.pointsEarned = pointsEarned;
+    this.pointsRecyclerView = pointsRecyclerView;
     this.resultCard = resultCard;
     this.scanHint = scanHint;
     this.scannerFrame = scannerFrame;
@@ -94,6 +105,12 @@ public final class FragmentQrScannerBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnBack;
+      ImageButton btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
       id = R.id.overlay;
       View overlay = ViewBindings.findChildViewById(rootView, id);
       if (overlay == null) {
@@ -103,6 +120,12 @@ public final class FragmentQrScannerBinding implements ViewBinding {
       id = R.id.pointsEarned;
       TextView pointsEarned = ViewBindings.findChildViewById(rootView, id);
       if (pointsEarned == null) {
+        break missingId;
+      }
+
+      id = R.id.pointsRecyclerView;
+      RecyclerView pointsRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (pointsRecyclerView == null) {
         break missingId;
       }
 
@@ -136,8 +159,9 @@ public final class FragmentQrScannerBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentQrScannerBinding((ConstraintLayout) rootView, bottleName, overlay,
-          pointsEarned, resultCard, scanHint, scannerFrame, viewFinder, viewHistoryButton);
+      return new FragmentQrScannerBinding((ConstraintLayout) rootView, bottleName, btnBack, overlay,
+          pointsEarned, pointsRecyclerView, resultCard, scanHint, scannerFrame, viewFinder,
+          viewHistoryButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
@@ -17,6 +18,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.refunnnn.app.R
 import com.refunnnn.app.databinding.FragmentQrScannerBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +41,30 @@ class QRScannerFragment : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
     
+    private var fromCekHarga: Boolean = false
+    private var isProcessingQRCode = false
+    private val scannedPoints = mutableListOf<PointItem>()
+    private lateinit var pointsAdapter: PointsAdapter
+
+    data class PointItem(val bottleName: String, val point: Long)
+
+    class PointsAdapter(private val items: List<PointItem>) : RecyclerView.Adapter<PointsAdapter.PointViewHolder>() {
+        class PointViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+            val name: TextView = view.findViewById(android.R.id.text1)
+            val point: TextView = view.findViewById(android.R.id.text2)
+        }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PointViewHolder {
+            val v = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_2, parent, false)
+            return PointViewHolder(v)
+        }
+        override fun onBindViewHolder(holder: PointViewHolder, position: Int) {
+            val item = items[position]
+            holder.name.text = item.bottleName
+            holder.point.text = "Poin: ${item.point}"
+        }
+        override fun getItemCount() = items.size
+    }
+
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
@@ -59,6 +86,8 @@ class QRScannerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        fromCekHarga = arguments?.getBoolean("fromCekHarga") == true
         
         // Initialize barcode scanner
         val options = BarcodeScannerOptions.Builder()
@@ -86,6 +115,15 @@ class QRScannerFragment : Fragment() {
                 findNavController().navigate(R.id.action_qrScannerFragment_to_historyFragment)
             }
         }
+        binding.btnBack.setOnClickListener {
+            if (isAdded && findNavController().currentDestination?.id == R.id.qrScannerFragment) {
+                findNavController().popBackStack()
+            }
+        }
+
+        pointsAdapter = PointsAdapter(scannedPoints)
+        binding.pointsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.pointsRecyclerView.adapter = pointsAdapter
     }
 
     private fun startCamera() {
@@ -142,6 +180,8 @@ class QRScannerFragment : Fragment() {
     }
 
     private fun handleScannedQRCode(qrValue: String) {
+        if (isProcessingQRCode) return
+        isProcessingQRCode = true
         if (!isAdded || _binding == null) return
         db.collection("transactions").document(qrValue)
             .get()
@@ -175,6 +215,8 @@ class QRScannerFragment : Fragment() {
                         }
                         val point = bottleDoc.getLong("point") ?: 0
                         val bottleName = bottleDoc.getString("name") ?: "Unknown Bottle"
+                        scannedPoints.add(PointItem(bottleName, point))
+                        pointsAdapter.notifyItemInserted(scannedPoints.size - 1)
                         binding.resultCard.visibility = View.VISIBLE
                         binding.bottleName.text = bottleName
                         binding.pointsEarned.text = "Poin yang didapat: $point"
@@ -185,6 +227,15 @@ class QRScannerFragment : Fragment() {
                             .addOnSuccessListener {
                                 addPointsToUser(point) {
                                     saveRedemptionHistory(qrValue, bottleId, point)
+                                    if (fromCekHarga) {
+                                        findNavController().navigate(
+                                            R.id.homeFragment,
+                                            null,
+                                            androidx.navigation.NavOptions.Builder()
+                                                .setPopUpTo(R.id.homeFragment, false)
+                                                .build()
+                                        )
+                                    }
                                 }
                             }
                             .addOnFailureListener {
@@ -222,14 +273,29 @@ class QRScannerFragment : Fragment() {
 
     private fun saveRedemptionHistory(transactionId: String, bottleId: String, point: Long) {
         val uid = auth.currentUser?.uid ?: return
-        val data = hashMapOf(
-            "transaction_id" to transactionId,
-            "bottle_id" to bottleId,
-            "user_id" to uid,
-            "point" to point,
-            "timestamp" to System.currentTimeMillis()
-        )
-        db.collection("redemptions").add(data)
+        db.collection("bottle_barcodes").document(bottleId)
+            .get()
+            .addOnSuccessListener { bottleDoc ->
+                val bottleName = bottleDoc.getString("name") ?: ""
+                val bottleVolume = bottleDoc.getString("volume") ?: ""
+                val bottlePoint = bottleDoc.getLong("point") ?: 0L
+                val bottleList = listOf(
+                    mapOf(
+                        "nama" to bottleName,
+                        "volume" to bottleVolume,
+                        "point" to bottlePoint
+                    )
+                )
+                val data = hashMapOf(
+                    "transaction_id" to transactionId,
+                    "bottle_list" to bottleList,
+                    "user_id" to uid,
+                    "total_point" to bottlePoint,
+                    "timestamp" to System.currentTimeMillis(),
+                    "location" to "Binus @Bandung - Paskal Campus"
+                )
+                db.collection("redemptions").add(data)
+            }
     }
 
     override fun onDestroyView() {

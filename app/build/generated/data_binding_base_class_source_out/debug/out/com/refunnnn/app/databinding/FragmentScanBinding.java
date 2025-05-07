@@ -4,7 +4,6 @@ package com.refunnnn.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -28,17 +27,13 @@ public final class FragmentScanBinding implements ViewBinding {
   public final TextView bottlePrice;
 
   @NonNull
-  public final Button btnScan;
-
-  @NonNull
   public final TextView scanTitle;
 
   private FragmentScanBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView barcodeImage,
-      @NonNull TextView bottlePrice, @NonNull Button btnScan, @NonNull TextView scanTitle) {
+      @NonNull TextView bottlePrice, @NonNull TextView scanTitle) {
     this.rootView = rootView;
     this.barcodeImage = barcodeImage;
     this.bottlePrice = bottlePrice;
-    this.btnScan = btnScan;
     this.scanTitle = scanTitle;
   }
 
@@ -81,12 +76,6 @@ public final class FragmentScanBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnScan;
-      Button btnScan = ViewBindings.findChildViewById(rootView, id);
-      if (btnScan == null) {
-        break missingId;
-      }
-
       id = R.id.scanTitle;
       TextView scanTitle = ViewBindings.findChildViewById(rootView, id);
       if (scanTitle == null) {
@@ -94,7 +83,7 @@ public final class FragmentScanBinding implements ViewBinding {
       }
 
       return new FragmentScanBinding((ConstraintLayout) rootView, barcodeImage, bottlePrice,
-          btnScan, scanTitle);
+          scanTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

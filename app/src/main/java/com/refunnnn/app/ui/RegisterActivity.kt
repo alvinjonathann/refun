@@ -29,13 +29,13 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun setupClickListeners() {
         binding.registerButton.setOnClickListener {
-            val name = binding.nameInput.text.toString().trim()
+            val username = binding.nameInput.text.toString().trim()
             val email = binding.emailInput.text.toString().trim()
             val password = binding.passwordInput.text.toString().trim()
             val confirmPassword = binding.confirmPasswordInput.text.toString().trim()
 
-            if (validateInputs(name, email, password, confirmPassword)) {
-                registerUser(name, email, password)
+            if (validateInputs(username, email, password, confirmPassword)) {
+                registerUser(username, email, password)
             }
         }
 
@@ -45,15 +45,15 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun validateInputs(
-        name: String,
+        username: String,
         email: String,
         password: String,
         confirmPassword: String
     ): Boolean {
         var isValid = true
 
-        if (name.isEmpty()) {
-            binding.nameLayout.error = "Name is required"
+        if (username.isEmpty()) {
+            binding.nameLayout.error = "Username is required"
             isValid = false
         } else {
             binding.nameLayout.error = null
@@ -89,49 +89,33 @@ class RegisterActivity : AppCompatActivity() {
         return isValid
     }
 
-    private fun registerUser(name: String, email: String, password: String) {
+    private fun registerUser(username: String, email: String, password: String) {
         showProgress(true)
-
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     if (user != null) {
-                        // Create user profile in Firestore
+                        // Save user data to Firestore
                         val userData = hashMapOf(
-                            "name" to name,
-                            "email" to email,
-                            "points" to 0
+                            "username" to username,
+                            "email" to email
                         )
-
-                        firestore.collection("users")
-                            .document(user.uid)
+                        firestore.collection("users").document(user.uid)
                             .set(userData)
                             .addOnSuccessListener {
                                 showProgress(false)
-                                Toast.makeText(
-                                    this,
-                                    "Registration successful!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
                                 startHomeActivity()
                             }
                             .addOnFailureListener { e ->
                                 showProgress(false)
-                                Toast.makeText(
-                                    this,
-                                    "Error creating user profile: ${e.message}",
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_LONG).show()
                             }
                     }
                 } else {
                     showProgress(false)
-                    Toast.makeText(
-                        this,
-                        "Registration failed: ${task.exception?.message}",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                 }
             }
     }

@@ -1,5 +1,13 @@
 [
     {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_gift_catalogue.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_gift_catalogue.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/item_botol.xml",
+        "source": "com.refunnnn.app-main-88:/layout/item_botol.xml"
+    },
+    {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_qr_scanner.xml",
         "source": "com.refunnnn.app-main-88:/layout/activity_qr_scanner.xml"
     },
@@ -36,6 +44,10 @@
         "source": "com.refunnnn.app-main-88:/layout/fragment_location_bin.xml"
     },
     {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_gift_detail.xml",
+        "source": "com.refunnnn.app-main-88:/layout/fragment_gift_detail.xml"
+    },
+    {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_login.xml",
         "source": "com.refunnnn.app-main-88:/layout/fragment_login.xml"
     },
@@ -48,12 +60,24 @@
         "source": "com.refunnnn.app-main-88:/layout/activity_main.xml"
     },
     {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/item_gift.xml",
+        "source": "com.refunnnn.app-main-88:/layout/item_gift.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_home.xml",
+        "source": "com.refunnnn.app-main-88:/layout/activity_home.xml"
+    },
+    {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_profile.xml",
         "source": "com.refunnnn.app-main-88:/layout/fragment_profile.xml"
     },
     {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_login.xml",
         "source": "com.refunnnn.app-main-88:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/item_history_transaksi.xml",
+        "source": "com.refunnnn.app-main-88:/layout/item_history_transaksi.xml"
     },
     {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_location.xml",

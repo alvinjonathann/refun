@@ -298,11 +298,11 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\alvin\.gradle\c
 	android:fullBackupContent
 		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:20:9-54
 	android:roundIcon
-		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:23:9-54
+		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:23:9-47
 	tools:targetApi
 		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:26:9-29
 	android:icon
-		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:21:9-43
+		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:21:9-42
 	android:allowBackup
 		ADDED from C:\Users\alvin\AndroidStudioProjects\refunnnn\app\src\main\AndroidManifest.xml:18:9-35
 	android:theme

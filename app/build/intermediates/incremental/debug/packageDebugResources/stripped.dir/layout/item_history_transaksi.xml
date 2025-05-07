@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_box"
+    android:padding="16dp"
+    android:layout_marginBottom="16dp">
+
+    <TextView
+        android:id="@+id/txtTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selasa, 31 Des 2024 14:04"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#00A859" />
+
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Binus @Bandung - Paskal Campus"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_marginTop="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/txtTotalBotol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 botol"
+            android:textStyle="bold"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/txtTotalPoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• 60 poin"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            android:textColor="#00A859" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Botol:"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBotol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false" />
+
+</LinearLayout> 

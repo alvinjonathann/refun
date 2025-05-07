@@ -18,9 +18,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_refun"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_refun"
         android:supportsRtl="true"
         android:theme="@style/Theme.Refunnnn"
         tools:targetApi="31">
@@ -28,7 +28,7 @@
         <!-- Google Maps API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAyJw6VZnqswCqq4a5lnv9YsdXkVvYtvQc" />
+            android:value="AIzaSyAyJw6VZnqswCqq4a5lnv9YsdXkVvYtvQc" />w
 
         <!-- Google Play Services Version -->
         <meta-data
