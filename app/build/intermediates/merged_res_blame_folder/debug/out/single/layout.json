@@ -64,10 +64,6 @@
         "source": "com.refunnnn.app-main-88:/layout/item_gift.xml"
     },
     {
-        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_home.xml",
-        "source": "com.refunnnn.app-main-88:/layout/activity_home.xml"
-    },
-    {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/fragment_profile.xml",
         "source": "com.refunnnn.app-main-88:/layout/fragment_profile.xml"
     },
@@ -78,9 +74,5 @@
     {
         "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/item_history_transaksi.xml",
         "source": "com.refunnnn.app-main-88:/layout/item_history_transaksi.xml"
-    },
-    {
-        "merged": "com.refunnnn.app-mergeDebugResources-85:/layout/activity_location.xml",
-        "source": "com.refunnnn.app-main-88:/layout/activity_location.xml"
     }
 ]

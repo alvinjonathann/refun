@@ -32,12 +32,9 @@ drawable bg_bottom_nav
 drawable bg_card_green
 drawable bg_card_lightgreen
 drawable daur_ulang
-drawable default_avatar
 drawable gift_item_background
 drawable history_icon
-drawable home_icon
 drawable ic_barcode
-drawable ic_barcodes
 drawable ic_bottle
 drawable ic_edit
 drawable ic_gopay
@@ -51,10 +48,7 @@ drawable ic_logout
 drawable ic_profile
 drawable ic_refun
 drawable ic_scan
-drawable ic_success
-drawable location_icon
 drawable pointx2
-drawable profile_icon
 drawable qr_scanner_overlay
 drawable rounded_box
 drawable rounded_image_background
@@ -142,7 +136,6 @@ id statusText
 id timeText
 id toolbar
 id txtBotolLabel
-id txtBottle
 id txtEmail
 id txtLocation
 id txtNamaBotol
@@ -160,8 +153,6 @@ id usernameLayout
 id viewFinder
 id viewHistoryButton
 layout activity_history
-layout activity_home
-layout activity_location
 layout activity_login
 layout activity_main
 layout activity_qr_scanner

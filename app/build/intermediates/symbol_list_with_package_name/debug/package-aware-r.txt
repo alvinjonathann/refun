@@ -3125,7 +3125,6 @@ drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable daur_ulang
-drawable default_avatar
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3135,10 +3134,8 @@ drawable gift_item_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable history_icon
-drawable home_icon
 drawable ic_arrow_back_black_24
 drawable ic_barcode
-drawable ic_barcodes
 drawable ic_bottle
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3169,8 +3166,6 @@ drawable ic_profile
 drawable ic_refun
 drawable ic_scan
 drawable ic_search_black_24
-drawable ic_success
-drawable location_icon
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3244,7 +3239,6 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pointx2
-drawable profile_icon
 drawable qr_scanner_overlay
 drawable rounded_box
 drawable rounded_image_background
@@ -3845,7 +3839,6 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id txtBotolLabel
-id txtBottle
 id txtEmail
 id txtLocation
 id txtNamaBotol
@@ -4004,8 +3997,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_history
-layout activity_home
-layout activity_location
 layout activity_login
 layout activity_main
 layout activity_qr_scanner

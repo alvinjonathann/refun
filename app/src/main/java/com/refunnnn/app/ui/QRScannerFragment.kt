@@ -192,10 +192,6 @@ class QRScannerFragment : Fragment() {
                     return@addOnSuccessListener
                 }
 
-                //edited (delete later)
-//                val bottleIds = doc.get("bottle_ids") as? List<String> ?: emptyList()
-//                Log.d("BottleIDS", bottleIds.toString())
-
                 // Check if QR code has already been used
                 val isUsed = doc.getBoolean("is_used") ?: false
                 if (isUsed) {
@@ -210,9 +206,6 @@ class QRScannerFragment : Fragment() {
                 }
 
                 var totalPoints : Long = 0
-                //edited
-//                val bottleId = bottleIds[0]
-                //edited
                 for (bottleId in bottleIds) {
                     db.collection("bottle_barcodes").document(bottleId)
                         .get()
@@ -230,28 +223,6 @@ class QRScannerFragment : Fragment() {
                             binding.resultCard.visibility = View.VISIBLE
                             binding.bottleName.text = bottleName
                             binding.pointsEarned.text = "Poin yang didapat: $point"
-
-//                            // Update transaction status to used
-//                            db.collection("transactions").document(qrValue)
-//                                .update("is_used", true)
-//                                .addOnSuccessListener {
-//                                    addPointsToUser(point) {
-//                                        saveRedemptionHistory(qrValue, bottleId, point)
-//                                        if (fromCekHarga) {
-//                                            findNavController().navigate(
-//                                                R.id.homeFragment,
-//                                                null,
-//                                                androidx.navigation.NavOptions.Builder()
-//                                                    .setPopUpTo(R.id.homeFragment, false)
-//                                                    .build()
-//                                            )
-//                                        }
-//                                    }
-//                                }
-//                                .addOnFailureListener {
-//                                    if (!isAdded || _binding == null) return@addOnFailureListener
-//                                    Toast.makeText(requireContext(), "Gagal memperbarui status transaksi", Toast.LENGTH_SHORT).show()
-//                                }
                         }
                         .addOnFailureListener {
                             if (!isAdded || _binding == null) return@addOnFailureListener
@@ -283,50 +254,6 @@ class QRScannerFragment : Fragment() {
                         if (!isAdded || _binding == null) return@addOnFailureListener
                         Toast.makeText(requireContext(), "Gagal memperbarui status transaksi", Toast.LENGTH_SHORT).show()
                     }
-
-//                db.collection("bottle_barcodes").document(bottleId)
-//                    .get()
-//                    .addOnSuccessListener { bottleDoc ->
-//                        if (!isAdded || _binding == null) return@addOnSuccessListener
-//                        if (!bottleDoc.exists()) {
-//                            Toast.makeText(requireContext(), "Data botol tidak ditemukan", Toast.LENGTH_SHORT).show()
-//                            return@addOnSuccessListener
-//                        }
-//                        val point = bottleDoc.getLong("point") ?: 0
-//                        val bottleName = bottleDoc.getString("name") ?: "Unknown Bottle"
-//                        scannedPoints.add(PointItem(bottleName, point))
-//                        pointsAdapter.notifyItemInserted(scannedPoints.size - 1)
-//                        binding.resultCard.visibility = View.VISIBLE
-//                        binding.bottleName.text = bottleName
-//                        binding.pointsEarned.text = "Poin yang didapat: $point"
-//
-//                        // Update transaction status to used
-//                        db.collection("transactions").document(qrValue)
-//                            .update("is_used", true)
-//                            .addOnSuccessListener {
-//                                addPointsToUser(point) {
-//                                    saveRedemptionHistory(qrValue, bottleId, point)
-//                                    if (fromCekHarga) {
-//                                        findNavController().navigate(
-//                                            R.id.homeFragment,
-//                                            null,
-//                                            androidx.navigation.NavOptions.Builder()
-//                                                .setPopUpTo(R.id.homeFragment, false)
-//                                                .build()
-//                                        )
-//                                    }
-//                                }
-//                            }
-//                            .addOnFailureListener {
-//                                if (!isAdded || _binding == null) return@addOnFailureListener
-//                                Toast.makeText(requireContext(), "Gagal memperbarui status transaksi", Toast.LENGTH_SHORT).show()
-//                            }
-//                    }
-//                    .addOnFailureListener {
-//                        if (!isAdded || _binding == null) return@addOnFailureListener
-//                        Toast.makeText(requireContext(), "Gagal mengambil data botol", Toast.LENGTH_SHORT).show()
-//                    }
-                // end block
             }
             .addOnFailureListener {
                 if (!isAdded || _binding == null) return@addOnFailureListener
@@ -351,40 +278,8 @@ class QRScannerFragment : Fragment() {
         }
     }
 
-//    private fun saveRedemptionHistory(transactionId: String, bottleId: String) {// edited, point: Long) {
-//        val uid = auth.currentUser?.uid ?: return
-//        db.collection("bottle_barcodes").document(bottleId)
-//            .get()
-//            .addOnSuccessListener { bottleDoc ->
-//                val bottleName = bottleDoc.getString("name") ?: ""
-//                val bottleVolume = bottleDoc.getString("volume") ?: ""
-//                val bottlePoint = bottleDoc.getLong("point") ?: 0L
-//                val bottleList = listOf(
-//                    mapOf(
-//                        "nama" to bottleName,
-//                        "volume" to bottleVolume,
-//                        "point" to bottlePoint
-//                    )
-//                )
-//                val data = hashMapOf(
-//                    "transaction_id" to transactionId,
-//                    "bottle_list" to bottleList,
-//                    "user_id" to uid,
-//                    "total_point" to bottlePoint,
-//                    "timestamp" to System.currentTimeMillis(),
-//                    "location" to "Binus @Bandung - Paskal Campus"
-//                )
-//                db.collection("redemptions").add(data)
-//            }
-//    }
-
     private fun saveRedemptionHistory(transactionId: String, bottleIds: List<String>, totalPoints: Long) {// edited, point: Long) {
         val uid = auth.currentUser?.uid ?: return
-//        val bottleMap: MutableMap<String, Any> = mutableMapOf(
-//            "nama" to "",
-//            "volume" to "",
-//            "point" to 0L
-//        )
         val bottleList = arrayListOf<MutableMap<String, Any>>()
         Log.d("SendRedemption", bottleIds.toString())
         var fetchCount = 0
@@ -427,52 +322,6 @@ class QRScannerFragment : Fragment() {
                     }
                 }
         }
-//        val finalList: List<Map<String, Any>> = bottleList.map { it.toMap() }
-//        Log.d("SendRedemption", bottleList.toString())
-//        Log.d("SendRedemption", finalList.toString())
-//        val data = hashMapOf(
-//            "transaction_id" to transactionId,
-//            "bottle_list" to finalList,
-//            "user_id" to uid,
-//            "total_point" to totalPoints,
-//            "timestamp" to System.currentTimeMillis(),
-//            "location" to "Binus @Bandung - Paskal Campus"
-//        )
-//        Log.d("SendRedemption", data["transaction_id"].toString())
-////        db.collection("redemptions").add(data)
-////            .addOnFailureListener { e ->
-////                Log.d("SendRedemption", e.toString())
-////            }
-//        db.collection("redeptions").document("tes-upload")
-//            .set(data)
-//            .addOnFailureListener { e ->
-//                Log.d("SendRedemption", e.toString())
-//            }
-
-
-//        db.collection("bottle_barcodes").document(bottleId)
-//            .get()
-//            .addOnSuccessListener { bottleDoc ->
-//                val bottleName = bottleDoc.getString("name") ?: ""
-//                val bottleVolume = bottleDoc.getString("volume") ?: ""
-//                val bottlePoint = bottleDoc.getLong("point") ?: 0L
-//                val bottleList = listOf(
-//                    mapOf(
-//                        "nama" to bottleName,
-//                        "volume" to bottleVolume,
-//                        "point" to bottlePoint
-//                    )
-//                )
-//                val data = hashMapOf(
-//                    "transaction_id" to transactionId,
-//                    "bottle_list" to bottleList,
-//                    "user_id" to uid,
-//                    "total_point" to bottlePoint,
-//                    "timestamp" to System.currentTimeMillis(),
-//                    "location" to "Binus @Bandung - Paskal Campus"
-//                )
-//                db.collection("redemptions").add(data)
-//            }
     }
 
     override fun onDestroyView() {
