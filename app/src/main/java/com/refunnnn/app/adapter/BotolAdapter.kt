@@ -32,7 +32,12 @@ class BotolAdapter(private val list: List<Botol>, private val isRedeem: Boolean 
         if (isRedeem) {
             holder.txtPoint.text = "-${botol.point} poin"
             holder.txtPoint.setTextColor(android.graphics.Color.parseColor("#D32F2F"))
-            holder.imgIcon.setImageResource(R.drawable.ic_gopay)
+            if (botol.nama.contains("gopay", ignoreCase = true)) {
+                holder.imgIcon.setImageResource(R.drawable.voucher_gopay)
+                holder.txtVolume.visibility = View.GONE
+            } else {
+                holder.imgIcon.setImageResource(R.drawable.ic_gopay)
+            }
         } else {
             holder.txtPoint.text = "+${botol.point} poin"
             holder.txtPoint.setTextColor(android.graphics.Color.parseColor("#00A859"))

@@ -80,6 +80,7 @@ id bottom_navigation
 id btnBack
 id btnBackGiftCatalogue
 id btnBackGiftDetail
+id btnCopyCode
 id btnDeleteAccount
 id btnEdit
 id btnLogout
@@ -140,6 +141,7 @@ id scannerOverlay
 id statusText
 id timeText
 id toolbar
+id txtBotolLabel
 id txtBottle
 id txtEmail
 id txtLocation
@@ -150,6 +152,7 @@ id txtTotalBotol
 id txtTotalPoin
 id txtUsername
 id txtVolume
+id txtVoucherCode
 id userName
 id userPoints
 id usernameInput

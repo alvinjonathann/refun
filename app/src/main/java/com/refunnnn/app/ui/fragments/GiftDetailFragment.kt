@@ -98,23 +98,42 @@ class GiftDetailFragment : Fragment() {
         val redemptionRef = db.collection("redemptions").document()
         val totalPoints = qty * gift.points
 
+        // Generate random code for GoPay vouchers
+        val randomCode = if (gift.id == "dummy1") {
+            generateRandomCode()
+        } else {
+            null
+        }
+
         db.runTransaction { transaction ->
             val snapshot = transaction.get(userRef)
             val currentPoints = snapshot.getLong("point") ?: 0L
             if (currentPoints >= totalPoints) {
                 transaction.update(userRef, "point", currentPoints - totalPoints)
-                transaction.set(redemptionRef, mapOf(
+                val redemptionData = hashMapOf(
                     "userId" to userId,
                     "giftId" to gift.id,
                     "giftTitle" to gift.title,
                     "quantity" to qty,
                     "totalPoints" to totalPoints,
                     "timestamp" to FieldValue.serverTimestamp()
-                ))
+                )
+                // Add random code for GoPay vouchers
+                if (randomCode != null) {
+                    redemptionData["voucherCode"] = randomCode
+                }
+                transaction.set(redemptionRef, redemptionData)
             } else {
                 throw FirebaseFirestoreException("Not enough points", FirebaseFirestoreException.Code.ABORTED)
             }
         }.addOnSuccessListener { onSuccess() }
          .addOnFailureListener { e -> onFailure(e.message ?: "Unknown error") }
+    }
+
+    private fun generateRandomCode(): String {
+        val allowedChars = ('A'..'Z') + ('0'..'9')
+        return (1..6)
+            .map { allowedChars.random() }
+            .joinToString("")
     }
 } 

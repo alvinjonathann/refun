@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.refunnnn.app.R;
@@ -20,10 +21,16 @@ public final class ItemHistoryBinding implements ViewBinding {
   private final CardView rootView;
 
   @NonNull
+  public final TextView btnCopyCode;
+
+  @NonNull
   public final TextView dateText;
 
   @NonNull
   public final TextView pointsText;
+
+  @NonNull
+  public final RecyclerView recyclerBotol;
 
   @NonNull
   public final TextView statusText;
@@ -31,13 +38,25 @@ public final class ItemHistoryBinding implements ViewBinding {
   @NonNull
   public final TextView timeText;
 
-  private ItemHistoryBinding(@NonNull CardView rootView, @NonNull TextView dateText,
-      @NonNull TextView pointsText, @NonNull TextView statusText, @NonNull TextView timeText) {
+  @NonNull
+  public final TextView txtTotalPoin;
+
+  @NonNull
+  public final TextView txtVoucherCode;
+
+  private ItemHistoryBinding(@NonNull CardView rootView, @NonNull TextView btnCopyCode,
+      @NonNull TextView dateText, @NonNull TextView pointsText, @NonNull RecyclerView recyclerBotol,
+      @NonNull TextView statusText, @NonNull TextView timeText, @NonNull TextView txtTotalPoin,
+      @NonNull TextView txtVoucherCode) {
     this.rootView = rootView;
+    this.btnCopyCode = btnCopyCode;
     this.dateText = dateText;
     this.pointsText = pointsText;
+    this.recyclerBotol = recyclerBotol;
     this.statusText = statusText;
     this.timeText = timeText;
+    this.txtTotalPoin = txtTotalPoin;
+    this.txtVoucherCode = txtVoucherCode;
   }
 
   @Override
@@ -67,6 +86,12 @@ public final class ItemHistoryBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnCopyCode;
+      TextView btnCopyCode = ViewBindings.findChildViewById(rootView, id);
+      if (btnCopyCode == null) {
+        break missingId;
+      }
+
       id = R.id.dateText;
       TextView dateText = ViewBindings.findChildViewById(rootView, id);
       if (dateText == null) {
@@ -76,6 +101,12 @@ public final class ItemHistoryBinding implements ViewBinding {
       id = R.id.pointsText;
       TextView pointsText = ViewBindings.findChildViewById(rootView, id);
       if (pointsText == null) {
+        break missingId;
+      }
+
+      id = R.id.recyclerBotol;
+      RecyclerView recyclerBotol = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerBotol == null) {
         break missingId;
       }
 
@@ -91,8 +122,20 @@ public final class ItemHistoryBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemHistoryBinding((CardView) rootView, dateText, pointsText, statusText,
-          timeText);
+      id = R.id.txtTotalPoin;
+      TextView txtTotalPoin = ViewBindings.findChildViewById(rootView, id);
+      if (txtTotalPoin == null) {
+        break missingId;
+      }
+
+      id = R.id.txtVoucherCode;
+      TextView txtVoucherCode = ViewBindings.findChildViewById(rootView, id);
+      if (txtVoucherCode == null) {
+        break missingId;
+      }
+
+      return new ItemHistoryBinding((CardView) rootView, btnCopyCode, dateText, pointsText,
+          recyclerBotol, statusText, timeText, txtTotalPoin, txtVoucherCode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

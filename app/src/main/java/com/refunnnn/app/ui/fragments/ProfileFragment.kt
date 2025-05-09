@@ -89,8 +89,8 @@ class ProfileFragment : Fragment() {
                     user.delete()
                         .addOnSuccessListener {
                             Toast.makeText(requireContext(), "Akun berhasil dihapus", Toast.LENGTH_SHORT).show()
-                            // Kembali ke RegisterActivity
-                            val intent = Intent(requireContext(), com.refunnnn.app.ui.RegisterActivity::class.java)
+                            // Kembali ke LoginActivity
+                            val intent = Intent(requireContext(), com.refunnnn.app.ui.LoginActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             requireActivity().finish()

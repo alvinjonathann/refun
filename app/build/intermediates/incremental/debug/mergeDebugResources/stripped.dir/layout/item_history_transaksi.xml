@@ -49,6 +49,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/txtBotolLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Botol:"
@@ -60,5 +61,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false" />
+
+    <TextView
+        android:id="@+id/txtVoucherCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="#4CAF50"
+        android:visibility="gone"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/btnCopyCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copy Code"
+        android:textColor="#2196F3"
+        android:padding="4dp"
+        android:visibility="gone"
+        android:layout_marginTop="4dp" />
 
 </LinearLayout> 

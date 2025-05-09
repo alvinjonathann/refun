@@ -49,5 +49,38 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txtTotalPoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtVoucherCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="#4CAF50"
+            android:visibility="gone"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/btnCopyCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copy Code"
+            android:textColor="#2196F3"
+            android:padding="4dp"
+            android:visibility="gone"
+            android:layout_marginTop="4dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerBotol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView> 

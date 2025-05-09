@@ -36,7 +36,9 @@ class GiftCatalogueFragment : Fragment() {
         recyclerView.adapter = adapter
 
         val backBtn = view.findViewById<View>(R.id.btnBackGiftCatalogue)
-        backBtn?.setOnClickListener { requireActivity().onBackPressed() }
+        backBtn?.setOnClickListener { 
+            findNavController().navigate(R.id.homeFragment)
+        }
 
         // Listen Firestore
         FirebaseFirestore.getInstance()

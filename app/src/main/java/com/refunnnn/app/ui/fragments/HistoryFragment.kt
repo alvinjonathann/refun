@@ -65,7 +65,8 @@ class HistoryFragment : Fragment() {
                         timestamp = timestamp,
                         totalBotol = bottleList.size,
                         totalPoin = totalPoin,
-                        bottleList = bottleList
+                        bottleList = bottleList,
+                        voucherCode = null
                     )
                 }
 
@@ -95,7 +96,8 @@ class HistoryFragment : Fragment() {
                                 timestamp = timestamp,
                                 totalBotol = quantity,
                                 totalPoin = totalPoints,
-                                bottleList = bottleList
+                                bottleList = bottleList,
+                                voucherCode = doc.getString("voucherCode")
                             )
                         }
                         // Gabungkan dan urutkan berdasarkan timestamp

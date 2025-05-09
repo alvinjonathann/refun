@@ -21,7 +21,13 @@ public final class ItemHistoryTransaksiBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView btnCopyCode;
+
+  @NonNull
   public final RecyclerView recyclerBotol;
+
+  @NonNull
+  public final TextView txtBotolLabel;
 
   @NonNull
   public final TextView txtLocation;
@@ -35,16 +41,22 @@ public final class ItemHistoryTransaksiBinding implements ViewBinding {
   @NonNull
   public final TextView txtTotalPoin;
 
-  private ItemHistoryTransaksiBinding(@NonNull LinearLayout rootView,
-      @NonNull RecyclerView recyclerBotol, @NonNull TextView txtLocation,
-      @NonNull TextView txtTanggal, @NonNull TextView txtTotalBotol,
-      @NonNull TextView txtTotalPoin) {
+  @NonNull
+  public final TextView txtVoucherCode;
+
+  private ItemHistoryTransaksiBinding(@NonNull LinearLayout rootView, @NonNull TextView btnCopyCode,
+      @NonNull RecyclerView recyclerBotol, @NonNull TextView txtBotolLabel,
+      @NonNull TextView txtLocation, @NonNull TextView txtTanggal, @NonNull TextView txtTotalBotol,
+      @NonNull TextView txtTotalPoin, @NonNull TextView txtVoucherCode) {
     this.rootView = rootView;
+    this.btnCopyCode = btnCopyCode;
     this.recyclerBotol = recyclerBotol;
+    this.txtBotolLabel = txtBotolLabel;
     this.txtLocation = txtLocation;
     this.txtTanggal = txtTanggal;
     this.txtTotalBotol = txtTotalBotol;
     this.txtTotalPoin = txtTotalPoin;
+    this.txtVoucherCode = txtVoucherCode;
   }
 
   @Override
@@ -74,9 +86,21 @@ public final class ItemHistoryTransaksiBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnCopyCode;
+      TextView btnCopyCode = ViewBindings.findChildViewById(rootView, id);
+      if (btnCopyCode == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerBotol;
       RecyclerView recyclerBotol = ViewBindings.findChildViewById(rootView, id);
       if (recyclerBotol == null) {
+        break missingId;
+      }
+
+      id = R.id.txtBotolLabel;
+      TextView txtBotolLabel = ViewBindings.findChildViewById(rootView, id);
+      if (txtBotolLabel == null) {
         break missingId;
       }
 
@@ -104,8 +128,14 @@ public final class ItemHistoryTransaksiBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemHistoryTransaksiBinding((LinearLayout) rootView, recyclerBotol, txtLocation,
-          txtTanggal, txtTotalBotol, txtTotalPoin);
+      id = R.id.txtVoucherCode;
+      TextView txtVoucherCode = ViewBindings.findChildViewById(rootView, id);
+      if (txtVoucherCode == null) {
+        break missingId;
+      }
+
+      return new ItemHistoryTransaksiBinding((LinearLayout) rootView, btnCopyCode, recyclerBotol,
+          txtBotolLabel, txtLocation, txtTanggal, txtTotalBotol, txtTotalPoin, txtVoucherCode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
