@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.giftCatalogueFragment, R.id.loginFragment, R.id.registerFragment, R.id.qrScannerFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.giftDetailFragment ,R.id.giftCatalogueFragment, R.id.loginFragment, R.id.registerFragment, R.id.qrScannerFragment -> bottomNavigationView.visibility = View.GONE
                 else -> bottomNavigationView.visibility = View.VISIBLE
             }
         }
