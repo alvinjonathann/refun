@@ -230,14 +230,11 @@ class QRScannerFragment : Fragment() {
                         }
                 }
 
-                //edited
                 // Update transaction status to used
                 db.collection("transactions").document(qrValue)
                     .update("is_used", true)
                     .addOnSuccessListener {
-                        // edited addPointsToUser(point) {
                         addPointsToUser(totalPoints) {
-                            // edited saveRedemptionHistory(qrValue, bottleId, point)
                             saveRedemptionHistory(qrValue, bottleIds, totalPoints)
                             if (fromCekHarga) {
                                 findNavController().navigate(
@@ -281,7 +278,6 @@ class QRScannerFragment : Fragment() {
     private fun saveRedemptionHistory(transactionId: String, bottleIds: List<String>, totalPoints: Long) {// edited, point: Long) {
         val uid = auth.currentUser?.uid ?: return
         val bottleList = arrayListOf<MutableMap<String, Any>>()
-        Log.d("SendRedemption", bottleIds.toString())
         var fetchCount = 0
 
         for (bottleId in bottleIds) {
@@ -313,11 +309,8 @@ class QRScannerFragment : Fragment() {
                             "location" to "Binus @Bandung - Paskal Campus"
                         )
                         db.collection("redemptions").add(data)
-                            .addOnSuccessListener { result ->
-                                Log.d("SendRedemption", result.id)
-                            }
                             .addOnFailureListener { e ->
-                                Log.d("SendRedemption", e.toString())
+                                Log.e("SendRedemption", e.toString())
                             }
                     }
                 }
